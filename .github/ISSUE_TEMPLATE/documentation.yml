@@ -1,0 +1,88 @@
+name: Documentation
+description: Report missing or incorrect documentation
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before creating this issue, read `CONTRIBUTING.md` and describe documentation outcomes another agent can verify.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: One-line statement of what documentation should accomplish.
+      placeholder: Clarify X for new users.
+    validations:
+      required: true
+
+  - type: textarea
+    id: issue
+    attributes:
+      label: Current Gap
+      description: What is missing, incorrect, or confusing in current docs?
+      placeholder: |
+        Current problem:
+        ...
+
+        Reader impact:
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Paths and sections to update.
+      placeholder: |
+        - README.md (...)
+        - docs/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Verifiable outcomes for documentation quality and completeness.
+      placeholder: |
+        - [ ] New user can complete task without additional prompts
+        - [ ] Commands are copy-paste runnable
+        - [ ] Cross-links point to correct docs
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Scope and Constraints
+      description: Boundaries and non-goals for this docs update.
+      placeholder: |
+        In scope:
+        ...
+
+        Out of scope:
+        ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Content
+      description: Draft wording or bullets to seed implementation.
+    validations:
+      required: false
+
+  - type: textarea
+    id: related
+    attributes:
+      label: Related Links
+      description: Nexus task, related issues/PRs, docs, or code refs.
+      placeholder: |
+        Related issue/PR:
+
+        Relevant docs/path:
+    validations:
+      required: false

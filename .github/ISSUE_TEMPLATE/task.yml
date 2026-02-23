@@ -1,0 +1,90 @@
+name: Task
+description: Agent work item for Nexus task creation and implementation
+labels: ["task"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template when breaking a project into implementation tasks.
+        Before creating this issue, read `CONTRIBUTING.md`.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: One-line imperative statement of what this task must accomplish.
+      placeholder: Add feature X to module Y.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Verifiable outcomes that define done.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and Constraints
+      description: In-scope boundaries and explicit non-goals.
+      placeholder: |
+        In scope:
+        ...
+
+        Out of scope:
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: Blocking tasks/issues, prerequisites, or sequencing notes.
+      placeholder: |
+        Blocked by:
+        - ...
+
+        Blocks:
+        - ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: implementation_notes
+    attributes:
+      label: Implementation Notes
+      description: Relevant modules, files, constraints, and known gotchas.
+      placeholder: |
+        Suggested touch points:
+        - ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Commands or observable checks the implementing agent should run.
+      placeholder: |
+        - Run repository validation commands (see skills/zr-github-defaults/SKILL.md)
+        - Verify behavior matches acceptance criteria
+    validations:
+      required: true
+
+  - type: textarea
+    id: related
+    attributes:
+      label: Related Links
+      description: Related issues/PRs, docs, or code references.
+      placeholder: |
+        Related issue/PR:
+        Relevant docs/path:
+    validations:
+      required: false

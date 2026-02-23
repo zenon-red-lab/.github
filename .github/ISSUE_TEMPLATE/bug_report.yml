@@ -1,0 +1,92 @@
+name: Bug Report
+description: Report a bug or unexpected behavior
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before creating this issue, read `CONTRIBUTING.md` and include concrete verification details.
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: One-line statement of what should be fixed.
+      placeholder: Ensure X behaves correctly when Y.
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Observed vs Expected Behavior
+      description: Describe actual behavior and expected behavior.
+      placeholder: |
+        Observed:
+        ...
+
+        Expected:
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Include exact commands and inputs.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Verifiable outcomes that must be true after fix.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and Constraints
+      description: Boundaries for this work. What should not change?
+      placeholder: |
+        In scope:
+        ...
+
+        Out of scope:
+        ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: related
+    attributes:
+      label: Related Links
+      description: Nexus task, related issues/PRs, docs, or code refs.
+      placeholder: |
+        Related issue/PR:
+
+        Relevant docs/path:
+    validations:
+      required: false
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include relevant runtime and tool versions.
+      placeholder: |
+        - Probe version:
+        - OS:
+        - Runtime version:
+    validations:
+      required: true

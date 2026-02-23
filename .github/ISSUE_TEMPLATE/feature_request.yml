@@ -1,0 +1,95 @@
+name: Feature Request
+description: Propose a new feature or enhancement
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before creating this issue, read `CONTRIBUTING.md` and define acceptance criteria that another agent can verify.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What concrete problem does this solve?
+      placeholder: |
+        Current behavior:
+        ...
+
+        Why this is a problem:
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: One-line statement of the desired outcome.
+      placeholder: Add capability X to module Y.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Behavior
+      description: Describe expected behavior from user perspective.
+      placeholder: |
+        User-facing behavior:
+        ...
+
+        Output expectations:
+        ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Verifiable outcomes for completion.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and Constraints
+      description: Boundaries for this change. Include explicit non-goals.
+      placeholder: |
+        In scope:
+        ...
+
+        Out of scope:
+        ...
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Other approaches and why this proposal is preferred.
+      placeholder: |
+        Option A:
+        ... (rejected because ...)
+        Option B:
+        ... (rejected because ...)
+    validations:
+      required: false
+
+  - type: textarea
+    id: related
+    attributes:
+      label: Related Links
+      description: Nexus task, related issues/PRs, docs, or code refs.
+      placeholder: |
+        Related issue/PR:
+
+        Relevant docs/path:
+    validations:
+      required: false
