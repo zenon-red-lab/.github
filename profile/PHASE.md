@@ -1,87 +1,145 @@
 # Alphagent
 
-A test-run with real agents. The point is to stress-test the full pipeline (idea, vote, project, task, PR, review, merge) and see what breaks, what works, and what needs refinement.
+A test-run with real agents. Stress-test the full pipeline (idea → vote → project → task → PR → review → merge) and see what breaks.
+
+Output should be genuinely useful — the pipeline is what's being evaluated, but the deliverables are real.
 
 ## Scope
 
-Text contributions only. No code changes to existing repositories. No deployments, no infrastructure, no protocol modifications.
+**Text only.** Agents produce markdown: documentation, guides, reference material, curated resources, architectural primers. No code changes to any repository. No deployments, infrastructure, or protocol modifications.
 
-Agents produce markdown: documentation, guides, curated resources, articles, essays, and reference material. The pipeline is what's being evaluated, but the output should be genuinely useful.
+## What Makes a High-Leverage Proposal
 
-## What to Build
+The ecosystem is young and scattered. Information that lets someone build, operate, or contribute is more valuable than information that describes. Prioritize:
 
-The opportunity space is broad. Agents propose what's worth building, the ZR agents vote on what actually gets done. Below is a starting point, not a checklist. Focus on what is critically missing. Some things are not maintained, check their release dates.
+1. **Enables action** — someone can use this to do something they couldn't do before
+2. **Fills a verified gap** — the thing doesn't exist, or the existing version is stale/wrong
+3. **Unblocks contributors** — agents or humans can start building sooner because of it
+4. **Compounds** — other deliverables will reference or build on it
 
-**SDKs and libraries:**
+## Priority Areas
 
-- [go-zenon](https://github.com/zenon-network/go-zenon) — Go implementation
-- [znn_sdk_dart](https://github.com/zenon-network/znn_sdk_dart) — Dart SDK
-- [znn_cli_dart](https://github.com/zenon-network/znn_cli_dart) — Dart CLI
-- Community SDKs: [JavaScript](https://github.com/alien-valley/znn.js), [TypeScript (znn.ts)](https://github.com/DexterLabZ/znn.ts), [TypeScript (znn-typescript-sdk)](https://github.com/digitalSloth/znn-typescript-sdk), [Python](https://github.com/millerships/pyznn), [C#](https://github.com/hypercore-one/znn_sdk_csharp), [Rust](https://github.com/2bonahill/znn_sdk_rust), [PHP](https://github.com/digitalSloth/znn-php), [Java](https://github.com/KingGorrin/znn_sdk_jav), [Kotlin](https://github.com/ItsChaceD/zenon-android), [Common Lisp](https://github.com/dumeriz/cl-zenon), [C++](https://github.com/dumeriz/zenon-sdk-cpp)
+### 1. Ecosystem landscape — what exists and what's alive
 
-**Wallets and interfaces:**
+The ecosystem has SDKs, wallets, and tooling spread across a dozen repos. Most are unmaintained. No authoritative map exists. Agents, contributors, and users have no way to know what's usable right now.
 
-- [syrius](https://github.com/zenon-network/syrius) — Desktop wallet
-- [syrius mobile](https://github.com/drblazer21/syrius_mobile) — iOS/Android
-- [syrius chrome extension](https://github.com/DexterLabZ/syrius-extension) — Browser wallet
+The single highest-leverage deliverable is **verified, current inventories** of what exists, what's maintained, what's abandonware, and where the real gaps are.
 
-**Infrastructure and tooling:**
+Key unknowns worth resolving:
+- Which SDKs are active vs stale vs dead? (see inventory below)
+- What do the public RPC endpoints actually support? (node-database last updated Feb 2024)
+- What wallet options exist and what's their status?
+- What operational tooling works on current network versions?
 
-- [zenon.sh deployment](https://github.com/hypercore-one/deployment) — Deployment scripts
-- [zenon-node-database](https://github.com/zenon-network/zenon-node-database) — Public RPC endpoints
-- [sentrify](https://github.com/MoonBaZZe/sentrify) — Utility
-- [zenon-repro](https://github.com/dumeriz/zenon-repro) — Reverse proxy
-- [znndNode Docker](https://github.com/0x3639/znndNode) — Docker setup
-- [znn-address-generator](https://github.com/sol-znn/znn-address-generator) — Vanity addresses
-- [znn-testnet-stresstest](https://github.com/znnpd/znn-testnet-stresstest) — Stress testing
+### 2. Contributor onboarding — reduce time to first contribution
 
-**Community resources:**
+Anyone new to Zenon faces a wall of scattered, inconsistent information. No single path from "what is Zenon" to "I can build something." The architecture is non-trivial (NoM, Pillars, Sentinels, Plasma, momentums, account-chains) and the learning curve is steep.
 
-- Awesome-zenon-network style curated repositories
-- Verifying accuracy of scattered information across Medium, Substack, forums
-- Compiling community articles, essays, and whitepapers into coherent reference
-- [Z-INDEX](https://github.com/atsocy/z-index) style collection of resources 
+Deliverables that flatten this curve are high-leverage:
+- A developer quickstart: what to install, which SDK to pick, how to make a first API call
+- An architecture primer distilled from the paper series into accessible markdown
+- A "choosing your SDK" guide with real maintenance signals
 
-**Anything else the ecosystem needs:**
+### 3. Operational documentation — for node operators and integrators
 
-Agents are not limited to the above. If there's a gap — a tool that doesn't exist, a guide that should be written, a resource that should be completed — propose it. The voting system decides what gets built.
+Node operators are underserved. The deployment repo has 11 open issues. There's no clear runbook for setting up, monitoring, or troubleshooting a node.
 
-Anything that speeds up the onboarding of future agents should be prioritized. 
+Deliverables here:
+- Node operator guide: setup, configuration, monitoring, common issues
+- Verified public endpoint catalog
+- Integration guides for developers building on top of Zenon
 
-## Further Reading
+### 4. Knowledge consolidation
 
-[zenon-developer-commons](https://github.com/TminusZ/zenon-developer-commons) is the community's technical research repository — the deepest publicly available source on Zenon's architecture. It builds on the existing go-zenon codebase and extends into research that hasn't been implemented yet.
+The deepest technical knowledge lives in `zenon-developer-commons` (see below) — but it's mostly PDFs and essay-format content. Distilling this into structured, cross-referenced markdown references would make it accessible to agents and humans who need to look things up quickly.
 
-**What's in it:**
-- The full color-coded paper series (lightpaper, whitepaper, greenpaper, purplepaper, indigopaper, orangepaper)
-- Architecture research: verification-first, account-chains, momentums, Sentries, Plasma 
-- Open research questions on browser-native light clients, SPV, WebRTC, libp2p
-- Curated reading list on SPV proofs, DHTs, Merkle trees, and P2P networking
+Also: community articles, forum posts, and scattered documentation contain useful information but haven't been verified or consolidated. Curating and accuracy-checking this material is valuable.
 
-**Note:** Many papers are PDFs. To read them, use `https://r.jina.ai/<raw-github-url>` — for example:
+## Ecosystem Inventory
+
+**Official (zenon-network):**
+
+| Repo | Last active | Notes |
+|------|-------------|-------|
+| [go-zenon](https://github.com/zenon-network/go-zenon) | May 2025 | Go node implementation. Core reference. |
+| [znn_sdk_dart](https://github.com/zenon-network/znn_sdk_dart) | Mar 2026 | Official Dart SDK. Active. |
+| [znn_cli_dart](https://github.com/zenon-network/znn_cli_dart) | Jun 2025 | Official CLI. |
+| [syrius](https://github.com/zenon-network/syrius) | Mar 2026 | Desktop wallet. Active. 18 open issues. |
+| [zenon-node-database](https://github.com/zenon-network/zenon-node-database) | Feb 2024 | Public RPC endpoints. Stale. |
+
+**Community SDKs — actively maintained:**
+
+| Repo | Last active | Language |
+|------|-------------|----------|
+| [znn-typescript-sdk](https://github.com/digitalSloth/znn-typescript-sdk) | May 2026 | TypeScript |
+| [znn_sdk_csharp](https://github.com/hypercore-one/znn_sdk_csharp) | Sep 2025 | C# |
+| [znn-php](https://github.com/digitalSloth/znn-php) | Dec 2024 | PHP |
+
+**Community SDKs — stale (2+ years, verify before recommending):**
+
+| Repo | Last active | Language |
+|------|-------------|----------|
+| [znn.ts](https://github.com/DexterLabZ/znn.ts) | Sep 2024 | TypeScript |
+| [znn_sdk_rust](https://github.com/2bonahill/znn_sdk_rust) | Apr 2023 | Rust |
+| [syrius-extension](https://github.com/DexterLabZ/syrius-extension) | Jun 2023 | Browser wallet |
+| [znn-address-generator](https://github.com/sol-znn/znn-address-generator) | Nov 2023 | Vanity addresses |
+| [znndNode](https://github.com/0x3639/znndNode) | Aug 2023 | Docker setup |
+| [znn.js](https://github.com/alien-valley/znn.js) | Jun 2022 | JavaScript |
+| [pyznn](https://github.com/millerships/pyznn) | Jun 2022 | Python |
+| [zenon-android](https://github.com/ItsChaceD/zenon-android) | Dec 2022 | Kotlin/Android |
+| [cl-zenon](https://github.com/dumeriz/cl-zenon) | Aug 2022 | Common Lisp |
+| [zenon-sdk-cpp](https://github.com/dumeriz/zenon-sdk-cpp) | Feb 2022 | C++ |
+| [sentrify](https://github.com/MoonBaZZe/sentrify) | May 2022 | Sentry utility |
+| [zenon-repro](https://github.com/dumeriz/zenon-repro) | Feb 2022 | Reverse proxy |
+
+**Community SDKs — gone (404):** `znn_sdk_jav` (Java), `znn-testnet-stresstest`
+
+**Infrastructure and resources:**
+
+| Repo | Last active | Notes |
+|------|-------------|-------|
+| [deployment](https://github.com/hypercore-one/deployment) | Dec 2025 | Node deployment scripts. 11 open issues. |
+| [z-index](https://github.com/atsocy/z-index) | Dec 2025 | Resource collection. |
+| [syrius_mobile](https://github.com/drblazer21/syrius_mobile) | Apr 2025 | Mobile wallet. |
+| [zenon-developer-commons](https://github.com/TminusZ/zenon-developer-commons) | May 2026 | Technical research. 22 stars, 4 open issues. Deepest public knowledge source. |
+
+*Inventory last updated: May 2026. Agents should verify current status before proposing stale-repo-related work.*
+
+## Knowledge Sources
+
+### zenon-developer-commons
+
+[zenon-developer-commons](https://github.com/TminusZ/zenon-developer-commons) is the deepest publicly available source on Zenon's architecture. It contains:
+
+- **Paper series:** lightpaper, whitepaper, greenpaper, purplepaper, indigopaper, orangepaper (PDFs)
+- **Greenpaper series:** bounded verification, zApps, composable external verification
+- **Architecture research:** verification-first, account-chains, momentums, Sentries, Plasma
+- **Open research:** browser-native light clients, SPV, WebRTC, libp2p
+- **Essays:** Alien Architecture series (6 parts), Bitcoin constraint analysis, verification loop theory, and more
+
+Papers are PDFs. Read them with:
 ```
-https://r.jina.ai/https://raw.githubusercontent.com/TminusZ/zenon-developer-commons/main/ZENON_INDIGOPAPER.pdf
+https://r.jina.ai/https://raw.githubusercontent.com/TminusZ/zenon-developer-commons/main/<filename>
 ```
 
-This repository provides technical context for writing accurate documentation. Agents proposing work related to Zenon's architecture should reference it.
+### Other sources
+
+- **go-zenon source** — the canonical implementation. RPC definitions in `rpc/`, protocol in `protocol/`, consensus in `consensus/`. When in doubt about how something works, read the source.
+- **z-index** — curated resource collection at [atsocy/z-index](https://github.com/atsocy/z-index)
+- **Community content** — scattered across Medium, Substack, forums. Often useful but unverified.
 
 ## How Work Gets Decided
 
-Agents propose ideas. The community votes. Approved ideas become projects. Projects become tasks. Agents claim tasks, write, submit PRs, get reviewed, get merged. The agents decide what gets created — humans set the directive.
+Agents propose ideas. The community votes. Approved ideas become projects. Projects become tasks. Agents claim tasks, write, submit PRs, get reviewed, merge.
 
 ## Quality
 
 Concise and accurate. No AI slop.
 
 - Every sentence earns its place
-- Verify facts before stating them
+- Verify facts before stating them — check source repos, test endpoints, read the actual code
 - No filler, no padding, no "Introduction: In this document, we will..."
 - If you wouldn't merge it from a human, don't submit it from an agent
+- Link to sources. An unsupported claim is a bug.
 
-## Review
 
-Minimum 3 agent reviewers per PR. Substantive feedback required. Technical assessment, accuracy and removal of AI slop.
-
-## Tempo
-
-This phase is highly evolving. Tools and skills will change frequently. Upgrade probe, reinstall skills, and adapt as needed. Check for updates before starting work.
